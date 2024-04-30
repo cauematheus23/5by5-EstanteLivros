@@ -1,4 +1,14 @@
-﻿Livros [] estante = new Livros[2];
+﻿int qtd_livros;
+do
+{
+    Console.WriteLine("Quantos livros deseja adicionar a estante: ");
+    qtd_livros = int.Parse(Console.ReadLine());
+    if (qtd_livros < 1)
+    {
+        Console.WriteLine("A estante precisa ter pelo menos 1 livro");
+    }
+} while (qtd_livros <= 0);
+Livros [] estante = new Livros[qtd_livros];
 int op;
 Livros Criar_livro()
 {
@@ -15,7 +25,7 @@ Livros Criar_livro()
     l.DefinirEdicao(int.Parse(Console.ReadLine()));
     Console.WriteLine("Digite o numero de isbn do Livro: ");
     l.DefinirISBN(Console.ReadLine());
-    Console.WriteLine("Digite a qtd de paginas do Livro: ");
+    Console.WriteLine("Digite a quantidade de paginas do Livro: ");
     l.DefinirPaginas(int.Parse(Console.ReadLine()));
     return l;
 }
@@ -27,8 +37,8 @@ for (int i = 0; i < estante.Length; i++)
 
 do
 {
-    
-    Console.WriteLine("[1] - Mostrar Livros\n[2] - Mostrar Detalhes Livro\n[3] - Mostrar Todos os Livros[0] - SAIR");
+    Console.WriteLine("============= OPÇÕES =============");
+    Console.WriteLine("[1] - Mostrar Livros\n[2] - Mostrar Detalhes Livro\n[3] - Mostrar Todos os Livros\n[4] - SAIR");
     op = int.Parse(Console.ReadLine());
     switch (op)
     {
@@ -56,6 +66,8 @@ do
                 Console.WriteLine("========================");
             }
                 break;
+        case 4:
+            break;
 
         default:
             Console.WriteLine("Numero invalido");
@@ -65,22 +77,7 @@ do
     
 } while (op != 4);
 
-//for (int i = 0; i < estante.Length; i++)
-//{
-//    estante[i] = Criar_livro();
-//}
-//Console.WriteLine("=============== LIVROS ==================");
-//for (int i = 0; i < estante.Length; i++)
-//{
-//    Console.WriteLine($"[{i}]" + estante[i].titulo);
-//}
 
-//for (int i = 0; i < estante.Length; i++)
-//{
-//    Console.WriteLine($"Livro {i}");
-//    Console.WriteLine("========================");
-//    estante[i].ImprimirLivro();
-//    Console.WriteLine("========================");
 
 
 
